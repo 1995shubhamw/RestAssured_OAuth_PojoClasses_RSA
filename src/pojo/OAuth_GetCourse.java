@@ -34,6 +34,7 @@ String response=given().log().all().formParam("client_id", "692183103107-p0m7ent
 	    .then().extract().asString();
 	    
 	    System.out.println(courseDetails);
+	    System.out.println(courseDetails)
 	    
 
 	}
