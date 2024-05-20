@@ -29,12 +29,22 @@ String response=given().log().all().formParam("client_id", "692183103107-p0m7ent
 	    
 	    //use access token to get course details
 	    
-	    String courseDetails=given().log().all().queryParam("access_token",accessToken)
+	    GetCourse gc=given().log().all().queryParam("access_token",accessToken)
 	    .when().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails")
-	    .then().extract().asString();
+	    .then().extract().as(GetCourse.class); // instead of coverting into string we are 
+	    //converting it into  java object which will return java object
 	    
-	    System.out.println(courseDetails);
-	    System.out.println(courseDetails)
+	    //TC 01-Print the instructor name
+	    
+	    
+	    System.out.println(gc.getInstructor());
+	    
+	  //TC 02-Print the LinkedIn URL
+	    
+	    System.out.println(gc.getLinkedIn());
+	    
+	   
+	   
 	    
 
 	}
